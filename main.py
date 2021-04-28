@@ -77,8 +77,11 @@ def check_is_valid(state_abbr, dln):
     else:
         return False
 
-state_abbreviation = get_state_abbr('state')
+state_abbreviation = get_state_abbr('Idaho')
 if state_abbreviation is not None:
-    print(check_is_valid(state_abbreviation, dln))
+    try:
+        print(check_is_valid('so', "13951251"))
+    except Exception as e:
+        print(str(e))
 else:
     print('Woah there.')
