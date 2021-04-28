@@ -47,7 +47,6 @@ def get_data():
 
 
 def clear_data():
-    output.delete(0.0, END)
     e1.delete(0, "end")
     e2.delete(0, "end")
     e3.delete(0, "end")
