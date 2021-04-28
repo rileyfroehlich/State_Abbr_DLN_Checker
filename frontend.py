@@ -51,7 +51,6 @@ def clear_data():
     e2.delete(0, "end")
     e3.delete(0, "end")
     e4.delete(0, "end")
-    list1.delete(0, "end")
 
 # Window creation
 
