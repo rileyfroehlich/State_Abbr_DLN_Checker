@@ -1,4 +1,5 @@
 from dlnvalidation import is_valid
+import tkinter
 
 def get_state_abbr(state):
     state = str(state)
@@ -73,17 +74,13 @@ def get_state_abbr(state):
         return None
 
 def check_is_valid(state_abbr, dln):
-    if is_valid(dln, state_abbr):
-        return True
+    if state_abbr is not None:
+        try:
+            if is_valid(dln, state_abbr):
+                return "Your Driver's License # is Valid"
+            else:
+                return "Your Driver's License # is not Valid"
+        except Exception as e:
+            return str(e)
     else:
-        return False
-
-state_abbreviation = get_state_abbr('WK')
-print(state_abbreviation)
-if state_abbreviation is not None:
-    try:
-        print(check_is_valid(state_abbreviation, "13951251"))
-    except Exception as e:
-        print(str(e))
-else:
-    print('Woah there.')
+        return "Invalid State"
