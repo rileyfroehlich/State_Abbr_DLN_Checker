@@ -2,10 +2,6 @@ from dlnvalidation import is_valid
 
 def get_state_abbr(state):
     state = str(state)
-    if len(state) == 2:
-        return state
-    
-    state = state[0].upper() + state[1:].lower()
 
     us_state_abbrev = {
         'Alabama': 'AL',
@@ -66,6 +62,11 @@ def get_state_abbr(state):
         'Wyoming': 'WY'
     }
 
+    if len(state) == 2:
+        return state.upper()
+
+    state = state[0].upper() + state[1:].lower()
+
     if state in us_state_abbrev.keys():
         return us_state_abbrev[state]
     else:
@@ -77,10 +78,11 @@ def check_is_valid(state_abbr, dln):
     else:
         return False
 
-state_abbreviation = get_state_abbr('Idaho')
+state_abbreviation = get_state_abbr('WK')
+print(state_abbreviation)
 if state_abbreviation is not None:
     try:
-        print(check_is_valid('so', "13951251"))
+        print(check_is_valid(state_abbreviation, "13951251"))
     except Exception as e:
         print(str(e))
 else:
